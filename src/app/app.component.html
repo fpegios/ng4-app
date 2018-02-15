@@ -1,11 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+  <!-- DIRECTIVE -->
   <h1 changeText>
+    <!-- DATA BINDING -->
     <b>Welcome to {{title | uppercase}}!</b><br/>
     <b>Welcome to {{title | lowercase}}!</b>
   </h1>
 </div>
 
+<!-- EVENT BINDING -->
+<h1>EVENT BINDING</h1>
 <div> Months :
   <select (change) = "changemonths($event)" name = "month">
      <option *ngFor="let i of months">{{i}}</option>
@@ -14,16 +17,20 @@
 
 <div>
   <span *ngIf="isavailable; then condition1 else condition2">Condition is valid.</span>
+  <!-- TEMPLATE -->
   <ng-template #condition1>Condition is valid from template</ng-template>
   <ng-template #condition2>Condition is invalid from template</ng-template>
 </div>
 
+<!-- EVENT BINDING -->
 <button (click)="myClickFunction($event)">
   Click Me
 </button>
 
-<div style = "width:100%;">
-  <div style = "width:40%;float:left;border:solid 1px black;">
+<!-- PIPES -->
+<h1>PIPES</h1>
+<div>
+  <div>
      <h1>Uppercase Pipe</h1>
      <b>{{title | uppercase}}</b><br/>
      
@@ -42,7 +49,7 @@
      <b>{{ 454.78787814 | number: '3.4-4' }}</b> // 3 is for main integer, 4 -4 are for integers to be displayed.
   </div>
   
-  <div style = "width:40%;float:left;border:solid 1px black;">
+  <div>
      <h1>Json Pipe</h1>
      <b>{{ jsonval | json }}</b>
      <h1>Percent Pipe</h1>
@@ -58,11 +65,11 @@
 <br/>
 <b>Square root of 729 is: {{729 | sqrt}}</b>
 
-<br />
-<br />
-<br />
+<!-- ROUTING -->
+<h1>ROUTING</h1>
 <a routerLink = "new-cmp">New component</a>
-
-<br />
+<br/>
 <br/>
 <router-outlet></router-outlet>
+
+{{todaydate}}
