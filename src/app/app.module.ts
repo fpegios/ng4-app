@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule} from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -18,7 +19,13 @@ import { SqrtPipe } from './app.sqrt';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+       {
+          path: 'new-cmp',
+          component: NewCmpComponent
+       }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
