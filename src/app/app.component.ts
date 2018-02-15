@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MyserviceService } from './myservice.service';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
@@ -29,11 +31,30 @@ export class AppComponent {
 
   today;
   componentproperty;
-  constructor(private myservice: MyserviceService) {}
+
+  constructor(private myservice: MyserviceService, private http: Http) {}
+
+  httpdata;
+  searchparam = 2;
+  jsondata;
+  name;
+
   ngOnInit() {
     this.today = this.myservice.showTodayDate();
     console.log(this.myservice.serviceproperty);
     this.myservice.serviceproperty = "component created"; // value is changed.
     this.componentproperty = this.myservice.serviceproperty;
+
+    this.http.get("http://jsonplaceholder.typicode.com/users?id=" + this.searchparam).
+    map(
+      (response: Response) => response.json()
+    ).
+    subscribe(
+      ((data) => this.converttoarray(data))
+    )
   }
+  converttoarray(data) {
+    console.log(data);
+    this.name = data[0].name;
+  }  
 }

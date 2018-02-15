@@ -73,3 +73,11 @@
 <router-outlet></router-outlet>
 
 {{todaydate}}
+
+<!-- HTTP SERVICE -->
+<h1>HTTP SERVICE</h1>
+<ul *ngFor = "let data of httpdata">
+    <li>Name : {{data.name}} Address: {{data.address.city}}</li>
+ </ul>
+
+ {{name}}
