@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MyserviceService } from './myservice.service';
 import { Http, Response } from '@angular/http';
+import { FormGroup, FormControl, Validators} from '@angular/forms'
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -39,6 +40,9 @@ export class AppComponent {
   jsondata;
   name;
 
+  emailid;
+  formdata;
+
   ngOnInit() {
     this.today = this.myservice.showTodayDate();
     console.log(this.myservice.serviceproperty);
@@ -52,9 +56,27 @@ export class AppComponent {
     subscribe(
       ((data) => this.converttoarray(data))
     )
+
+    // Model Driven Form
+    this.formdata = new FormGroup({
+      emailid: new FormControl("", Validators.compose([
+         Validators.required,
+         Validators.pattern("[^ @]*@[^ @]*")
+      ])),
+      passwd: new FormControl("", this.passwordvalidation)
+    });
   }
+
   converttoarray(data) {
     console.log(data);
     this.name = data[0].name;
   }  
+
+  passwordvalidation(formcontrol) {
+    if (formcontrol.value.length < 5) {
+       return {"passwd" : true};
+    }
+ }
+
+  onClickSubmit(data) {this.emailid = data.emailid;}
 }
