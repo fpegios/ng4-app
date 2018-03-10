@@ -5,6 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatMenuModule, MatSidenavModule } from '@angular/material';
+import { MatDatepickerModule, MatInputModule, MatNativeDateModule, MatFormFieldModule } from '@angular/material';
+
+import {Component} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
@@ -26,6 +30,13 @@ import { MyserviceService } from './myservice.service';
     ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatDatepickerModule, 
+    MatInputModule, 
+    MatNativeDateModule,
+    MatFormFieldModule,
     RouterModule.forRoot([
        {
           path: 'new-cmp',

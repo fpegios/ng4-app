@@ -57,6 +57,8 @@ export class AppComponent {
   today;
   componentproperty;
 
+  myData: Array<any>;
+
   constructor(private myservice: MyserviceService, private http: Http) {}
 
   httpdata;
