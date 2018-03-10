@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { NewCmpComponent } from './new-cmp/new-cmp.component';
@@ -24,6 +25,7 @@ import { MyserviceService } from './myservice.service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
        {
           path: 'new-cmp',

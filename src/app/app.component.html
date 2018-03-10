@@ -97,7 +97,16 @@
         value = "Log In">
   </form>
 </div>
-
 <p>
   Email entered is : {{emailid}}
 </p>
+
+<!-- ANIMATIONS -->
+<br>
+<br>
+<div>
+  <button (click)="animate()">Click Me</button>
+  <div [@myanimation] = "state" class="rotate">
+     <img src="assets/images/img.png" width="100" height="100">
+  </div>
+</div>
